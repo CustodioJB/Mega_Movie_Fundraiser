@@ -79,7 +79,7 @@ while name != "xxx" and count < MAX_TICKETS:
     # Get age (between 12 and 130)
     age = int_check("Age: ")
 
-    # check if the age is valid...
+    # check that age is valid...
     if age < 12:
         print("Sorry you are too young for this movie")
         continue
