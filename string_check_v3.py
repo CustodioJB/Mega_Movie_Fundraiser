@@ -1,22 +1,24 @@
 
+
+
 # Function goes here
 def string_check(choice, options):
-
+    
     for var_list in options:
 
-        #if the snack is in one of the lists, return the full
+        # if snack is in one of the lists, return the full
         if choice in var_list:
 
-            #Get full name of snack and put it in title case so it looks nice when outputted
+            # get full name of snack and put it
+            # in title case so it looks nice when outputted
             chosen = var_list[0].title()
             is_valid = "yes"
             break
 
-        #if the chosen option is not valid, set is_valid to not valid
+
         else:
             is_valid = "no"
-    
-    #if the snack is not OK - ask question again.
+
     if is_valid == "yes":
         return chosen
     else:
@@ -35,25 +37,36 @@ valid_snacks = [
 
 ]
 
-
 yes_no = [
     ["yes", "y"],
     ["no", "n"]
 ]
-
-check_snack = "invalid choice"
-while check_snack == "invalid choice":
-    want_snack = input("Do you want to order snacks? ").lower()
-    check_snack = string_check(want_snack, yes_no)
-
-
+#initialize variables
+snack_ok = ""
+snack = ""
 
 # loop three times to make testing quicker
-for item in range(0, 3):
+for item in range(0, 6):
 
     #ask user for desired snack and put it in lowercase
     desired_snack = input("Snack: ").lower()
 
-    # check if snack is valid
-    snack_choice = string_check(desired_snack, valid_snacks)
-    print("Snack Choice: ", snack_choice)
+    for var_list in valid_snacks:
+
+        # if the snack is in one of the lists, return the full:
+        if desired_snack in var_list:
+
+
+        # check if snack is valid
+            snack_choice = string_check(desired_snack, valid_snacks)
+            print("Snack Choice: ", snack_choice)
+
+        # if the chosen snack is not valid, set snack_ok to no
+        else:
+            snack_ok = "no"
+
+    # if the snack is not OK - ask question again.
+    if snack_ok == "yes":
+        print("Snack Choice:", snack)
+    else:
+        print("Please select a valid option")
